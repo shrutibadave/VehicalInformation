@@ -1,0 +1,23 @@
+.radio-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.radio-label {
+    margin-left: 8px;
+    //margin-top: 10px
+
+}
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 300px; /* Adjust the max-width as needed */
+    margin-top: 20px;
+}
+
+.previous-button, .next-button {
+    padding: 10px;
+    margin: 0;
+}

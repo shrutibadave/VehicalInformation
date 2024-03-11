@@ -1,0 +1,21 @@
+<div class="center-container">
+    <form [formGroup]="vehicleForm">
+        <h2>Number of wheels</h2>
+        <div class="form-group">
+            <label for="wheels" class="form-label">
+                <span class="form-text-required">*</span>Choose Number of Wheels:
+            </label>
+            <div *ngFor="let wheel of noOfWheels; let i = index" class="radio-option">
+                <input type="radio" id="{{ wheel }}" [value]="wheel" formControlName="wheels" />
+                <label for="{{ wheel }}" class="radio-label">{{ wheel }}</label>
+            </div>
+            <div *ngIf="f.wheels.touched && f.wheels.errors" class="form-error">
+                <div *ngIf="f.wheels.errors.required">Please select the number of wheels.</div>
+            </div>
+        </div>
+    </form>
+    <div class="button-container">
+        <button class="previous-button" (click)="submitForm()">Previous</button>
+        <button class="next-button" (click)="submitForm()">Next</button>
+    </div>
+</div>

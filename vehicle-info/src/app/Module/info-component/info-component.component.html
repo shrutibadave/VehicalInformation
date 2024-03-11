@@ -1,0 +1,21 @@
+<div class="center-container">
+  <form [formGroup]="vehicleForm">
+    <h2>What is your name</h2>
+    <div class="form-group">
+      <label for="firstName"><span class="form-text-required">*</span>First Name:</label>
+      <input type="text" id="firstName" formControlName="firstName" />
+      <div *ngIf="f.firstName.touched && f.firstName.errors" class="form-error">
+        <div *ngIf="f.firstName.errors.required ">Please select first name.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName"><span class="form-text-required">*</span>Last Name:</label>
+      <input type="text" id="lastName" formControlName="lastName" />
+      <div *ngIf="f.lastName.touched && f.lastName.errors" class="form-error">
+        <div *ngIf="f.lastName.errors.required ">Please select last name.</div>
+      </div>
+    </div>
+  </form>
+  <button (click)="submitForm()">Next</button>
+</div>

@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~ngx-toastr/toastr.css';
+
+.form-text-required {
+  font-size: 11pt;
+  font-weight: 300;
+  color: #ec0b0b;
+}
+
+.form-error {
+  font-size: 9pt;
+  font-weight: 600;
+  color: #e43737;
+  padding-top: 0px;
+  padding-left: 0px;
+  font-family: "montserrat";
+  font-weight: 500;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-height: 100vh;
+
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
