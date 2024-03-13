@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TypeOfWheelComponentComponent } from './type-of-wheel-component.component';
+import { TypeOfvehicleComponentComponent } from './type-of-vehicle-component.component';
 
 describe('TypeOfWheelComponentComponent', () => {
-  let component: TypeOfWheelComponentComponent;
-  let fixture: ComponentFixture<TypeOfWheelComponentComponent>;
+  let component: TypeOfvehicleComponentComponent;
+  let fixture: ComponentFixture<TypeOfvehicleComponentComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TypeOfWheelComponentComponent ]
+      declarations: [TypeOfvehicleComponentComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TypeOfWheelComponentComponent);
+    fixture = TestBed.createComponent(TypeOfvehicleComponentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

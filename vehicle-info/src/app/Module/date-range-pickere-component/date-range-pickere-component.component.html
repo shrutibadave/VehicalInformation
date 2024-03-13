@@ -1,1 +1,32 @@
-<p>date-range-pickere-component works!</p>
+<div class="center-container">
+    <form>
+        <h2> Date range picker </h2>
+        <div class="form-group">
+            <label for="wheels" class="form-label">
+                <span class="form-text-required">*</span>Choose Date:
+            </label>
+            <div class="date-dropdown">
+                <mat-form-field>
+                    <mat-date-range-input [formGroup]="range" [rangePicker]="picker" [dateFilter]="dateFilter">
+                        <input matStartDate formControlName="start" placeholder="">
+                        <input matEndDate formControlName="end" placeholder="" >
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker  #picker></mat-date-range-picker>
+
+
+                </mat-form-field>
+
+
+
+            </div>
+            <!-- <div *ngIf="f.wheelType.touched && f.wheelType.errors" class="form-error">
+                <div *ngIf="f.wheelType.errors.required">Please select date.</div>
+            </div> -->
+        </div>
+    </form>
+    <div class="button-container">
+        <button class="previous-button" (click)="previous()">Previous</button>
+        <button class="next-button" (click)="submitForm()">Submit</button>
+    </div>
+</div>

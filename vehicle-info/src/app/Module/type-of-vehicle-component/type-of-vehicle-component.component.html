@@ -1,0 +1,21 @@
+<div class="center-container">
+    <form [formGroup]="vehicleForm">
+        <h2>Type of vehicle</h2>
+        <div class="form-group">
+            <label for="wheels" class="form-label">
+                <span class="form-text-required">*</span>Choose type of Wheel:
+            </label>
+            <div *ngFor="let wheel of this.vehicleObject; let i = index" class="radio-option">
+                <input type="radio" id="{{ wheel }}" [value]="wheel.type"   (change)="handleChange($event,wheel)" formControlName="wheels" />
+                <label for="{{ wheel }}" class="radio-label">{{ wheel.type }}</label>
+            </div>
+            <div *ngIf="f.wheels.touched && f.wheels.errors" class="form-error">
+                <div *ngIf="f.wheels.errors.required">Please select the type of wheels.</div>
+            </div>
+        </div>
+    </form>
+    <div class="button-container">
+        <button class="previous-button" (click)="previous()">Previous</button>
+        <button class="next-button" (click)="submitForm()">Next</button>
+    </div>
+</div>

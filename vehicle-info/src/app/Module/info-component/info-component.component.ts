@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { VehicleDataServiceService } from 'src/app/service/vehicle-data-service.service';
 
 @Component({
   selector: 'app-info-component',
@@ -13,16 +14,30 @@ export class InfoComponentComponent implements OnInit {
   get f() {
     return this.vehicleForm.controls;
   }
-  constructor(private toastr: ToastrService, private fb: FormBuilder, private route: Router) { }
+  constructor(private toastr: ToastrService, private fb: FormBuilder, private common: VehicleDataServiceService,
+    private route: Router, private Activerouter: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.vehicleForm = this.fb.group(
       {
-        firstName: ['', Validators.required],
-        lastName: ['', Validators.required]
+        firstName: new FormControl('', Validators.required),
+        lastName: new FormControl('', Validators.required)
 
       }
     )
+    let userInfo = history.state.value;
+    if (userInfo != undefined) {
+      this.common.setSessionstorage("userInfo", userInfo);
+    }
+    else {
+      userInfo = this.common.getSessionstorage("userInfo");
+    }
+    if (userInfo != undefined) {
+      this.vehicleForm.setValue({
+        firstName: userInfo.firstName,
+        lastName: userInfo.lastName
+      });
+    }
   }
   submitForm() {
     if (this.vehicleForm?.valid) {
@@ -30,7 +45,8 @@ export class InfoComponentComponent implements OnInit {
       let values = this.vehicleForm.value;
       console.log(values)
 
-      this.route.navigate(['no-of-wheels'], { queryParams: { value: values } });
+      this.route.navigate(['no-of-wheels'], { state: { value: values } });
+      this.common.removeSessionstorage("noOfWheel");
 
     }
     else {

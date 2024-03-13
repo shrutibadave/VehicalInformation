@@ -1,1 +1,32 @@
-<p>specific-model-component works!</p>
+<div class="center-container">
+    <form [formGroup]="vehicleForm">
+        <h2>Specific Model </h2>
+        <div class="form-group">
+            <label for="wheels" class="form-label">
+                <span class="form-text-required">*</span>Choose Name of vehicle:
+            </label>
+            <div>
+                <div class="radio-option" *ngIf="this.vehicleById!=undefined">
+                    <input type="radio" [value]="this.vehicleById.name"  (change)="handleChange($event,this.vehicleById.name)" formControlName="wheels"  />
+                    <label class="radio-label">{{ this.vehicleById.name }}</label>
+                    <div style="margin-right: 10px;"></div>
+
+                    <img [src]="this.vehicleById.image.key" alt="Vehicle Image" width="50" height="50"
+                        style="object-fit: cover;">
+
+                </div>
+                <div *ngIf="f.wheels.touched && f.wheels.errors" class="form-error">
+                    <div *ngIf="f.wheels.errors.required">Please select the type of wheels.</div>
+                </div>
+            </div>
+            <div class="radio-option" *ngIf="this.vehicleById==undefined">
+                <span>No vehicle found</span>
+            </div>
+
+        </div>
+    </form>
+    <div class="button-container">
+        <button class="previous-button" (click)="previous()">Previous</button>
+        <button class="next-button" (click)="submitForm()">Next</button>
+    </div>
+</div>

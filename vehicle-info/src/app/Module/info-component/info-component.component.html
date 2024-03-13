@@ -3,7 +3,7 @@
     <h2>What is your name</h2>
     <div class="form-group">
       <label for="firstName"><span class="form-text-required">*</span>First Name:</label>
-      <input type="text" id="firstName" formControlName="firstName" />
+      <input type="text" id="firstName" formControlName="firstName"  />
       <div *ngIf="f.firstName.touched && f.firstName.errors" class="form-error">
         <div *ngIf="f.firstName.errors.required ">Please select first name.</div>
       </div>

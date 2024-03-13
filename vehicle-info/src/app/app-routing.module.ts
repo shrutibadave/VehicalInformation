@@ -3,15 +3,16 @@ import { NavigationEnd, Router, RouterModule, Routes } from '@angular/router';
 import { InfoComponentComponent } from './Module/info-component/info-component.component';
 import { DateRangePickereComponentComponent } from './Module/date-range-pickere-component/date-range-pickere-component.component';
 import { SpecificModelComponentComponent } from './Module/specific-model-component/specific-model-component.component';
-import { TypeOfWheelComponentComponent } from './Module/type-of-wheel-component/type-of-wheel-component.component';
+import { TypeOfvehicleComponentComponent } from './Module/type-of-vehicle-component/type-of-vehicle-component.component';
 import { WheelsComponentComponent } from './Module/wheels-component/wheels-component.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/no-of-wheels',
-    pathMatch: 'full',
+    redirectTo: '/user',
+    pathMatch: 'full'
   },
+  // { path: '**', redirectTo: '/user' },
   {
     path: 'user',
     component: InfoComponentComponent,
@@ -21,8 +22,8 @@ const routes: Routes = [
     component: WheelsComponentComponent,
   },
   {
-    path: 'type-of-wheel',
-    component: TypeOfWheelComponentComponent,
+    path: 'type-of-vehicle',
+    component: TypeOfvehicleComponentComponent,
   },
   {
     path: 'specific-model',
@@ -32,6 +33,7 @@ const routes: Routes = [
     path: 'date-range-picker',
     component: DateRangePickereComponentComponent
   }
+
 
 ];
 
@@ -43,11 +45,5 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule {
-  constructor(private router: Router) {
-    router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        console.log(event);
-      }
-    });
-  }
+
 }

@@ -1,0 +1,12 @@
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 300px; /* Adjust the max-width as needed */
+    margin-top: 20px;
+}
+
+.previous-button, .next-button {
+    padding: 10px;
+    margin: 0;
+}

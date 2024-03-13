@@ -6,7 +6,7 @@
                 <span class="form-text-required">*</span>Choose Number of Wheels:
             </label>
             <div *ngFor="let wheel of noOfWheels; let i = index" class="radio-option">
-                <input type="radio" id="{{ wheel }}" [value]="wheel" formControlName="wheels" />
+                <input type="radio" id="{{ wheel }}" [value]="wheel" (change)="handleChange($event,wheel)" formControlName="wheels" />
                 <label for="{{ wheel }}" class="radio-label">{{ wheel }}</label>
             </div>
             <div *ngIf="f.wheels.touched && f.wheels.errors" class="form-error">
@@ -15,7 +15,7 @@
         </div>
     </form>
     <div class="button-container">
-        <button class="previous-button" (click)="submitForm()">Previous</button>
+        <button class="previous-button" (click)="previous()">Previous</button>
         <button class="next-button" (click)="submitForm()">Next</button>
     </div>
 </div>
